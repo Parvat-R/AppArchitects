@@ -1,5 +1,7 @@
 package com.example.aavinapp
 
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
@@ -8,8 +10,39 @@ import okhttp3.Request
 import okhttp3.RequestBody
 import okhttp3.RequestBody.Companion.toRequestBody
 import okhttp3.Response
+import okio.IOException
 
 
+fun requestTransitions(userSession: SessionDetails): List<Transaction> {
+    val client = OkHttpClient()
+    val request = Request.Builder()
+        .url("http://localhost:8080/profile/transactions")
+        .build()
+
+    client.newCall(request).execute().use { response ->
+        if (!response.isSuccessful) throw IOException("Unexpected code $response")
+
+        val responseData = response.body?.string()
+        val listType = object : TypeToken<List<Transaction>>() {}.type
+        return Gson().fromJson(responseData, listType)
+    }
+}
+
+fun requestTransaction(userSession: SessionDetails): Transaction {
+    println("Here Da")
+    val client = OkHttpClient()
+    val request = Request.Builder()
+        .url("http://localhost:8080/profile/transaction")
+        .build()
+
+    client.newCall(request).execute().use { response ->
+        if (!response.isSuccessful) throw IOException("Unexpected code $response")
+
+        val responseData = response.body?.string()
+        val listType = object : TypeToken<Transaction>() {}.type
+        return Gson().fromJson(responseData, listType)
+    }
+}
 class ServerClient (userSession: SessionDetails) {
     var user: SessionDetails = userSession
     val base_url = "http://localhost:8080"
@@ -35,9 +68,11 @@ class ServerClient (userSession: SessionDetails) {
 fun main() {
     println("Running")
     println(
-        ServerClient(
-            SessionDetails("test", "test", "test", null, null)
-        ).requestLogin()
+        requestTransaction(
+            SessionDetails(
+            "", "", "", null, null
+        )
+        )
     )
     println("Running")
 }

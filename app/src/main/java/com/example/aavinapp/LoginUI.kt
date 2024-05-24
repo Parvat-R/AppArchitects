@@ -21,7 +21,7 @@ import androidx.navigation.NavController
 
 //@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun LoginUI(sessionDetails: SessionDetails, navContorller: NavController) {
+fun LoginUI(userSession: SessionDetails, navContorller: NavController) {
 //    Scaffold(
 //        modifier = Modifier
 //    ) { innerPadding ->
@@ -57,7 +57,12 @@ fun LoginUI(sessionDetails: SessionDetails, navContorller: NavController) {
             onValueChange = { password = it },
             label = { Text(text = "password") }
         )
-        Button( onClick = { /*TODO*/ }, colors = ButtonDefaults.buttonColors(Color.Gray)){
+        Button( onClick = {
+            userSession.sessionID = "01"
+            userSession.password = password
+            userSession.farmerID = farmerID
+            navContorller.navigate("home")
+        }, colors = ButtonDefaults.buttonColors(Color.Gray)){
             Text(
                 text = "Sign in",
                 style = TextStyle(fontSize = 14.sp)

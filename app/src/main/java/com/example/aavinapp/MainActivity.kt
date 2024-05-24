@@ -33,12 +33,15 @@ class MainActivity : ComponentActivity() {
 fun AavinApp() {
     val navController = rememberNavController()
     var userSession by remember {
-        mutableStateOf(SessionDetails("Parvat", "-", "-", null, null))
+        mutableStateOf(SessionDetails("Milk Man", "-", "-", null, null))
     }
     NavHost(navController = navController, startDestination = "home") {
         composable("home") { HomeUI(userSession, navController) }
         composable("login") { LoginUI(userSession, navController) }
         composable("signup") { SignUpUI(userSession, navController) }
+        composable("newTransaction") { TransactionUI(userSession, navController) }
+        composable("viewTransaction") { ViewTransactionUI(userSession, navController) }
+
 //        composable("forgotPassword") { ForgotPasswordUI(userSession, navController) }
 //        composable("profile") { ProfileUI(userSession, navController) }
 //        composable("transaction") { TransactionUI(userSession, navController) }

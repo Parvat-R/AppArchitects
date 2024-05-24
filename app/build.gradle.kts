@@ -72,4 +72,5 @@ dependencies {
     implementation(libs.kotlinx.serialization.json)
 //    implementation(libs.ui)
     implementation(libs.androidx.navigation.compose)
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
 }

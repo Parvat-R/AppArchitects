@@ -3,6 +3,18 @@ package com.example.aavinapp
 import androidx.annotation.Keep
 import kotlinx.serialization.Serializable
 
+@Keep
+@Serializable
+data class Transaction (
+    var transactionID: String?,
+    var farmerID: String,
+    var dateOfTransaction: String,
+    var quantity: Float,
+    var quality: Float,
+    var societyID: Int,
+    var rate: Float
+)
+
 
 @Keep
 @Serializable

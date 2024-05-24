@@ -60,10 +60,48 @@ def profileSave():
 
 @app.route('/profile/transactions', methods=['GET', 'POST'])
 def profileTransactions():
-    return {
-        "working": True
-    }
+    return [
+        {
+            "transactionID": "Random",
+            "farmerID": "Random",
+            "dateOfTransaction": "Random",
+            "quantity": 10.1,
+            "quality": 10.5,
+            "societyID": 1020,
+            "rate": 10.30
+        },
+        {
+            "transactionID": "Random",
+            "farmerID": "Random",
+            "dateOfTransaction": "Random",
+            "quantity": 10.1,
+            "quality": 10.5,
+            "societyID": 1020,
+            "rate": 10.30
+        },
+        {
+            "transactionID": "Random",
+            "farmerID": "Random",
+            "dateOfTransaction": "Random",
+            "quantity": 10.1,
+            "quality": 10.5,
+            "societyID": 1020,
+            "rate": 10.30
+        },
+    ]
 
+
+@app.route("/profile/transaction")
+def oneTransactionView():
+    return {
+        "transactionID": "Random",
+            "farmerID": "Random",
+            "dateOfTransaction": "Random",
+            "quantity": 10.1,
+            "quality": 10.5,
+            "societyID": 1020,
+            "rate": 10.30
+    }
 
 
 @app.route('/admin/login', methods=['GET', 'POST'])
