@@ -1,7 +1,4 @@
-val <T> Provider<T>.android: T
-    get() {
-        TODO("Not yet implemented")
-    }
+
 
 plugins {
     alias(libs.plugins.android.application)
