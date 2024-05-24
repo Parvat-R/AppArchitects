@@ -17,7 +17,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             AavinAppTheme {
                 var sessionDetails by remember {
-                    mutableStateOf(SessionDetails("none", "none"))
+                    mutableStateOf(SessionDetails("none", "none", "device"))
                 }
                     LoginUI(sessionDetails = sessionDetails)
 //                Text(text = "Hello")
