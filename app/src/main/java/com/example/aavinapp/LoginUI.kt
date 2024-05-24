@@ -37,9 +37,12 @@ fun LoginUI(sessionDetails: SessionDetails) {
 //            }
 //        }
 //    }
+    Column {
+//
+    }
     Column (modifier = Modifier
-                    .padding(top = 200.dp)
-                    .padding(horizontal = 120.dp)){
+        .padding(top = 200.dp)
+        .padding(horizontal = 120.dp)){
         Text(text = "USER LOGIN")
         var farmerID by remember { mutableStateOf("") }
         TextField(
