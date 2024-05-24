@@ -20,7 +20,7 @@ def login():
         farmerID = request.form.get('farmerID', None)
         deviceDetails = request.form.get('deviceDetails', None)
         resp = db.getSessionID(farmerID, deviceDetails)
-        if resp.rowcount != 0:
+        if resp.rowcount > 0:
             return {
                 "sessionID": resp.fetchone()[0]
             }
@@ -113,3 +113,7 @@ def adminViewOneDelete():
     return {
         "working": True
     }
+
+
+if __name__ == "__main__":
+    app.run(host="localhost", port=8080, debug=True)
