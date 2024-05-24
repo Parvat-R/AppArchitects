@@ -19,29 +19,30 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun LoginUI(sessionDetails: SessionDetails) {
-    Scaffold(
-        modifier = Modifier
-    ) { innerPadding ->
-        Column(
-            modifier = Modifier.padding(innerPadding),
-        ) {
-            Column(
-                modifier = Modifier
-                    .padding(top = 200.dp)
-                    .padding(horizontal = 120.dp)
-            ) {
-
-
-            }
-        }
-    }
+fun LoginUI(sessionDetails: SessionDetails, navContorller: NavController) {
+//    Scaffold(
+//        modifier = Modifier
+//    ) { innerPadding ->
+//        Column(
+//            modifier = Modifier.padding(innerPadding),
+//        ) {
+//            Column(
+//                modifier = Modifier
+//                    .padding(top = 200.dp)
+//                    .padding(horizontal = 120.dp)
+//            ) {
+//
+//
+//            }
+//        }
+//    }
     Column {
-
+        Text(text = "Aavin")
     }
     Column (modifier = Modifier
         .padding(top = 200.dp)

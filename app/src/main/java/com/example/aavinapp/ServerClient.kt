@@ -18,13 +18,25 @@ class ServerClient (userSession: SessionDetails) {
         var res: Response = createPost("$base_url/login", json)
         return res.body?.string()
     }
+
+    fun requestSignUp(): String? {
+        var json = Json.encodeToString(this.user)
+        var res: Response = createPost("$base_url/signup", json)
+        return res.body?.string()
+    }
+
+    fun requestRoute(route: String): Response{
+        var json = Json.encodeToString(this.user)
+        var res: Response = createPost(base_url + route, json)
+        return res
+    }
 }
 
 fun main() {
     println("Running")
     println(
         ServerClient(
-            SessionDetails("test", "test", "test")
+            SessionDetails("test", "test", "test", null, null)
         ).requestLogin()
     )
     println("Running")
